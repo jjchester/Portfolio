@@ -1,113 +1,186 @@
-import Image from "next/image";
+"use client";
+import { Box, Center, GridItem, Image, SimpleGrid, Text } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import Card from "./components/card";
+import SwiftIcon from "./components/icons/swifticon";
+import SkillCard from "./components/skillcard";
+import GithubIcon from "./components/icons/githubicon";
+import GitIcon from "./components/icons/giticon";
+import { ReactIcon } from "@chakra-ui/icons";
+import ReactLogoIcon from "./components/icons/reactlogoicon";
+import ApiIcon from "./components/icons/apiicon";
+import FirebaseIcon from "./components/icons/firebaseicon";
+import MysqlIcon from "./components/icons/mysqlicon";
+import DockerIcon from "./components/icons/dockericon";
+import KubernetesIcon from "./components/icons/kubernetesicon";
+import JiraIcon from "./components/icons/jiraicon";
+import ConfluenceIcon from "./components/icons/confluenceicon";
+import UxIcon from "./components/icons/uxicon";
+import BashIcon from "./components/icons/bashicon";
+import BugIcon from "./components/icons/bugicon";
+
+const MotionGridItem = motion(GridItem);
 
 export default function Home() {
+  const cardAnimation = {
+    initial: { x: 0, y: 0, opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    transition: { duration: 1, ease: "easeInOut" },
+  };
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      {/* <Card animate={cardAnimation}>
+        <SimpleGrid columns={5} spacing={0}>
+          <MotionGridItem
+            colSpan={{ base: 5, md: 3 }}
+            display={"flex"}
+            alignItems={"center"}
+            justifyContent={"center"}
+            initial={{ x: '-10vw', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+            <Text fontSize={{ base: "3xl", md: "7xl" }} fontWeight={"600"} textAlign={"center"}>
+              Hi, I'm Justin
+            </Text>
+          </MotionGridItem>
+          <MotionGridItem
+            colSpan={{ base: 0, md: 2 }}
+            rowSpan={{ base: 1, md: 2 }}
+            display={{ base: "none", md: "flex" }}
+            alignItems={"center"}
+            justifyContent={"center"}
+            initial={{ x: '10vw', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+          >
+            <Image display={{ base: "none", md: "block" }} src="/images/memoji.png" alt="Test" maxW={"300px"} />
+          </MotionGridItem>
+          <MotionGridItem
+            colSpan={{ base: 5, md: 3 }}
+            display={"flex"}
+            alignItems={"center"}
+            justifyContent={"center"}
+            initial={{ x: '-10vw', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+          >
+            <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight={"500"} textAlign={"center"}>
+              I am an experienced developer with a knack for native iOS and experience across web, backend, and emerging technologies.
+            </Text>
+          </MotionGridItem>
+        </SimpleGrid>
+      </Card> */}
+      <Box h={{ base: "50px", md: "100px" }} />
+      <Text fontSize={"5xl"} fontWeight={"600"} textAlign={"center"} pb={4}>Skills</Text>
+      <Box display="flex" justifyContent="center" w="100%" pb={8}>
+        <SimpleGrid minChildWidth="240px" spacing={4} w="100%" mx={'auto'}>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<SwiftIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"iOS"}
+              description={"Using Swift, SwiftUI, UIKit, Cocoa, and core libraries to create native iOS apps."}
             />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+          </GridItem>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<GitIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"Git"}
+              description={"Working with GitHub and GitLab for version control, CI/CD, and code reviews."}
+            />
+          </GridItem>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<ApiIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"API Building"}
+              description={"Creating and testing APIs with tools like Node, Symfony, and Postman."}
+            />
+          </GridItem>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<ReactLogoIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"React"}
+              description={"Building web applications using React and NextJS 14 with common libraries"}
+            />
+          </GridItem>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<FirebaseIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"Firebase"}
+              description={"Using Firebase auth, Firestore NoSQL database, and cloud functions."}
+            />
+          </GridItem>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<MysqlIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"MySQL"}
+              description={"Writing MySQL queries & migrations directly or using ORM tools like Prisma."}
+            />
+          </GridItem>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<DockerIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"Docker"}
+              description={"Creating and managing containers with Docker and Docker Compose."}
+            />
+          </GridItem>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<JiraIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"Jira"}
+              description={"Using Jira to manage and track tasks, epics, sprints, and roadmaps."}
+            />
+          </GridItem>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<ConfluenceIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"Confluence"}
+              description={"Documenting new and existing features using Confluence pages."}
+            />
+          </GridItem>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<UxIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"UX/UI"}
+              description={"Designing clean and user-friendly interfaces with tools like Figma and XD."}
+            />
+          </GridItem>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<BashIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"Scripting"}
+              description={"Automating repetitive tasks & commands with scripts using ZSH and Bash."}
+            />
+          </GridItem>
+          <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<BugIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"Debugging"}
+              description={"Troubleshooting with tools like LLDB, Postman, breakpoints and logging."}
+            />
+          </GridItem>
+          {/* <GridItem>
+            <SkillCard
+              maxW="300px"
+              image={<KubernetesIcon width="24px" height="24px" color="codegreen.400" />}
+              title={"Kubernetes"}
+              description={"Using Kubernetes, kubens, and kubectl to ."}
+            />
+          </GridItem> */}
+        </SimpleGrid>
+      </Box>
+    </>
   );
 }
