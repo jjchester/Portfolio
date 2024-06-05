@@ -19,7 +19,7 @@ import BashIcon from "./components/icons/bashicon";
 import BugIcon from "./components/icons/bugicon";
 
 const MotionGridItem = motion(GridItem);
-
+const MotionBox = motion(Box);
 export default function Home() {
   const cardAnimation = {
     initial: { x: 0, y: 0, opacity: 0 },
@@ -27,6 +27,10 @@ export default function Home() {
     transition: { duration: 1, ease: "easeInOut" },
   };
   const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 }
+  };
+  const textVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 }
   };
@@ -75,7 +79,9 @@ export default function Home() {
         </SimpleGrid>
       </Card>
       <Box h={{ base: "50px", md: "100px" }} />
-      <Text fontSize={"5xl"} fontWeight={"600"} textAlign={"center"} pb={4}>Skills</Text>
+      <MotionBox as={motion.div} variants={textVariants} initial="hidden" animate="visible" transition={{ duration: 1, ease: "easeInOut" }}>
+        <Text fontSize={"5xl"} fontWeight={"600"} textAlign={"center"} pb={4}>Skills</Text>
+      </MotionBox>
       <Box display="flex" justifyContent="center" w="100%" pb={8}>
         <SimpleGrid minChildWidth="240px" spacing={4} w="100%" mx={'auto'}>
           {[

@@ -3,8 +3,10 @@ import { Box, Button, HStack, Heading, Input, Select, Stack, Text, Textarea, VSt
 import { useForm, ValidationError } from "@formspree/react";
 import { useState } from 'react';
 
+const formkey = process.env.FORMSPREE_KEY! as string;
+
 export default function Contact() {
-  const [state, handleSubmit] = useForm(process.env.FORMSPREE_KEY!);
+  const [state, handleSubmit] = useForm(`${formkey}`);
   const [error, setError] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
