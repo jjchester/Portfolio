@@ -6,7 +6,6 @@ import SwiftIcon from "./components/icons/swifticon";
 import SkillCard from "./components/skillcard";
 import GithubIcon from "./components/icons/githubicon";
 import GitIcon from "./components/icons/giticon";
-import { ReactIcon } from "@chakra-ui/icons";
 import ReactLogoIcon from "./components/icons/reactlogoicon";
 import ApiIcon from "./components/icons/apiicon";
 import FirebaseIcon from "./components/icons/firebaseicon";

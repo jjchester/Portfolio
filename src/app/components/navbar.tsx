@@ -20,10 +20,6 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
-interface LinkItem {
-    name: string;
-    link: string;
-}
 const Links = [
     { name: 'Home', link: '/' },
     // { name: 'About', link: '/about' },
@@ -80,7 +76,7 @@ export default function Navbar() {
                     <Box pb={4} display={{ md: 'none' }}>
                         <Stack as={'nav'} spacing={4}>
                             {Links.map((link) => (
-                                <NavLink key={link}>{link}</NavLink>
+                                <Link key={link.name} href={link.link}>{link.name}</Link>
                             ))}
                         </Stack>
                     </Box>
