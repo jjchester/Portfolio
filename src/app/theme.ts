@@ -3,6 +3,22 @@ import { extendTheme } from "@chakra-ui/react";
 const bgnavy = "rgb(34,36,55)";
 const bggray = "rgb(30,30,30)";
 const customTheme = extendTheme({
+    components: {
+        Tabs: {
+            variants: {
+                underlined: {
+                    tab: {
+                        _selected: {
+                            borderBottomWidth: "2px",
+                            borderBottomColor: "codegreen.500",
+                            color: "codegreen.500",
+                            fontWeight: "semibold",
+                        },
+                    },
+                },
+            },
+        },
+    },
     colors: {
         brand:
         {
@@ -29,6 +45,10 @@ const customTheme = extendTheme({
             700: '#146633',
             800: '#073e1d',
             900: '#001603',
+        },
+        footer:
+        {
+            bg: "rgb(30,32,49)"
         }
     },
     styles: {

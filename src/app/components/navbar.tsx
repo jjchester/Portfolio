@@ -66,7 +66,9 @@ export default function Navbar() {
                             spacing={4}
                             display={{ base: 'none', md: 'flex' }}>
                             {Links.map((link) => (
-                                <Link key={link.name} href={link.link}>{link.name}</Link>
+                                <Link
+                                    _hover={{ textDecoration: 'none', borderBottom: "1px solid", borderColor: "codegreen.400" }}
+                                    mx={2} px={4} py={2} key={link.name} href={link.link}>{link.name}</Link>
                             ))}
                         </HStack>
                     </HStack>
