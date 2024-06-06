@@ -42,13 +42,13 @@ const tabInfo = [
         projects: [
             {
                 name: 'Pennytel',
-                description: 'A freelance project using NextJS with Prisma to rebuild the Pennytel website.',
-                image: 'https://www.pennytel.com/wp-content/uploads/2022/02/Pennytel-Logo-Color-300x300.png'
+                description: 'A freelance project to rebuild the client\'s low-cost call forwarding business site. Using NextJS with Prisma ORM, next-auth for custom credential and OAuth authentication.',
+                image: 'images/pennytel.png'
             },
             {
                 name: 'Bookshelf',
-                description: 'A web app that uses the Google Books API to allow users to search for books and view details.',
-                image: 'https://www.pennytel.com/wp-content/uploads/2022/02/Pennytel-Logo-Color-300x300.png'
+                description: 'A web app that uses the Google Books API to allow users to search for books, add them to a library, and share their library with others.',
+                image: 'images/bookshelf.png'
             }
         ],
         stack: 'column'

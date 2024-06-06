@@ -3,6 +3,7 @@ import { Box, Center, GridItem, Image, SimpleGrid, Text } from "@chakra-ui/react
 import { motion } from "framer-motion";
 import Card from "./components/card";
 import SwiftIcon from "./components/icons/swifticon";
+import AppleIcon from "./components/icons/appleicon";
 import SkillCard from "./components/skillcard";
 import GithubIcon from "./components/icons/githubicon";
 import GitIcon from "./components/icons/giticon";
@@ -85,7 +86,7 @@ export default function Home() {
       <Box display="flex" pb={8}>
         <SimpleGrid minChildWidth="240px" spacing={4} w="100%">
           {[
-            { icon: SwiftIcon, title: "iOS", description: "Using Swift, SwiftUI, UIKit, Cocoa, and core libraries to create native iOS apps." },
+            { icon: AppleIcon, title: "iOS", description: "Using Swift, SwiftUI, UIKit, Cocoa, and core libraries to create native iOS apps." },
             { icon: GitIcon, title: "Git", description: "Working with GitHub and GitLab for version control, CI/CD, and code reviews." },
             { icon: ApiIcon, title: "API Building", description: "Creating and testing APIs with tools like Node, Symfony, and Postman." },
             { icon: ReactLogoIcon, title: "React", description: "Building web applications using React and NextJS 14 with common libraries." },

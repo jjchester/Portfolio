@@ -12,6 +12,8 @@ export default function ProjectCard({ title, description, imageURL, stack }: Pro
             bg={"rgba(255,255,255,0.05)"}
             boxShadow={"2xl"}
             rounded={"md"}
+            _hover={{ transform: "scale(1.01)" }}
+            transition="transform 0.2s ease-in-out"
         >
             <Stack direction={stack} align="center">
                 <Image
@@ -21,7 +23,9 @@ export default function ProjectCard({ title, description, imageURL, stack }: Pro
                     fit={"scale-down"}
                     src={imageURL}
                     alt={title}
-                    p={2}
+                    m={stack == 'column' ? '0' : '2'}
+                    borderTopRadius={'md'}
+                    borderBottomRadius={stack == 'column' ? 'none' : 'md'}
                 />
                 <Stack direction="column" align="left" p={2}>
                     <Heading fontSize={"2xl"} fontWeight={500} fontFamily={"body"}>
