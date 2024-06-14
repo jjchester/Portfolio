@@ -1,7 +1,9 @@
 'use client'
-import { Box, Button, HStack, Heading, Input, Select, Stack, Text, Textarea, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, HStack, Heading, Input, Link, Select, Stack, Text, Textarea, VStack } from "@chakra-ui/react";
 import { useForm, ValidationError } from "@formspree/react";
 import { useState } from 'react';
+import GithubIcon from "../components/icons/githubicon";
+import LinkedinIcon from "../components/icons/linkedinicon";
 
 export default function ContactForm({ formkey }: { formkey: string }) {
     const [state, handleSubmit] = useForm(formkey);
@@ -86,6 +88,19 @@ export default function ContactForm({ formkey }: { formkey: string }) {
                     </Button>
                 </Stack>
             </form>
+            <VStack align={'start'}>
+                <Text fontSize={'3xl'}>
+                    My Links
+                </Text>
+                <HStack spacing={8}>
+                    <Link isExternal href="https://github.com/jjchester">
+                        <GithubIcon width="48px" height="48px" color="codegreen.400" />
+                    </Link>
+                    <Link isExternal href="https://www.linkedin.com/in/justinjchester/">
+                        <LinkedinIcon width="48px" height="48px" color="codegreen.400" />
+                    </Link>
+                </HStack>
+            </VStack>
         </Box>
     );
 }
