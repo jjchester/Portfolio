@@ -1,6 +1,6 @@
 'use client'
-import { Box, SimpleGrid, GridItem, Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
-import { useState } from "react";
+import { Box, SimpleGrid, GridItem, Tab, TabList, TabPanel, TabPanels, Tabs, forwardRef, BoxProps } from "@chakra-ui/react";
+import { ForwardRefExoticComponent, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ProjectCard from "../components/projectcard"; // Assuming you have ProjectCard component
 
@@ -62,31 +62,24 @@ const tabInfo = [
 ];
 
 const variants = {
-    enter: (direction: number) => ({
-        x: direction > 0 ? "100%" : "-100%",
+    enter: {
         opacity: 0,
         position: "absolute",
-    }),
+    },
     center: {
-        x: 0,
         opacity: 1,
         position: "relative",
     },
-    exit: (direction: number) => ({
-        x: direction > 0 ? "-100%" : "100%",
+    exit: {
         opacity: 0,
         position: "absolute",
-    }),
+    },
 };
-
-const MotionBox = motion(Box);
 
 export default function Projects() {
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [direction, setDirection] = useState(0);
 
     const handleTabChange = (index: number) => {
-        setDirection(index > selectedIndex ? 1 : -1);
         setSelectedIndex(index);
     };
 
@@ -98,17 +91,17 @@ export default function Projects() {
                 ))}
             </TabList>
             <Box position="relative" width="100%" height="auto" mt={4} overflow="hidden">
-                <AnimatePresence initial={false} custom={direction}>
+                <AnimatePresence initial={false}>
                     {tabInfo.map((tab, tabIndex) => (
                         selectedIndex === tabIndex && (
-                            <MotionBox
+                            <Box
+                                as={motion.div}
                                 key={tab.title}
-                                custom={direction}
-                                variants={variants}
+                                variants={variants as any}
                                 initial="enter"
                                 animate="center"
                                 exit="exit"
-                                transition={{ type: "keyframes", stiffness: 300, damping: 30 }}
+                                transition={{ duration: 1, ease: "easeInOut" } as any}
                                 style={{ position: "absolute", width: "100%" }}
                             >
                                 <SimpleGrid minChildWidth={{ sm: "200px", md: "400px" }} spacing={2} w="100%">
@@ -123,7 +116,7 @@ export default function Projects() {
                                         </GridItem>
                                     ))}
                                 </SimpleGrid>
-                            </MotionBox>
+                            </Box>
                         )
                     ))}
                 </AnimatePresence>

@@ -16,14 +16,13 @@ interface Props {
     p?: number
 }
 
-const MotionBox = motion(Box);
-
 export default function Card({ children, backgroundColor, animate, maxW, maxH, p }: Props) {
     return (
-        <MotionBox
+        <Box
+            as={motion.div}
             initial={animate?.initial}
             animate={animate?.animate}
-            transition={animate?.transition}
+            transition='0.5s linear'
             backgroundColor={backgroundColor ? backgroundColor : "rgba(255,255,255,0.1)"}
             borderRadius={"10px"}
             p={p ?? 4}
@@ -32,6 +31,6 @@ export default function Card({ children, backgroundColor, animate, maxW, maxH, p
             boxShadow={"0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"}
         >
             {children}
-        </MotionBox>
+        </Box>
     )
 } 

@@ -1,26 +1,20 @@
 "use client";
 import { Box, Center, GridItem, Image, SimpleGrid, Text } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import Card from "./components/card";
-import SwiftIcon from "./components/icons/swifticon";
+import { motion, Transition } from "framer-motion";
 import AppleIcon from "./components/icons/appleicon";
 import SkillCard from "./components/skillcard";
-import GithubIcon from "./components/icons/githubicon";
 import GitIcon from "./components/icons/giticon";
 import ReactLogoIcon from "./components/icons/reactlogoicon";
 import ApiIcon from "./components/icons/apiicon";
 import FirebaseIcon from "./components/icons/firebaseicon";
 import MysqlIcon from "./components/icons/mysqlicon";
 import DockerIcon from "./components/icons/dockericon";
-import KubernetesIcon from "./components/icons/kubernetesicon";
 import JiraIcon from "./components/icons/jiraicon";
 import ConfluenceIcon from "./components/icons/confluenceicon";
 import UxIcon from "./components/icons/uxicon";
 import BashIcon from "./components/icons/bashicon";
 import BugIcon from "./components/icons/bugicon";
 
-const MotionGridItem = motion(GridItem);
-const MotionBox = motion(Box);
 export default function Home() {
   const cardAnimation = {
     initial: { x: 0, y: 0, opacity: 0 },
@@ -39,20 +33,21 @@ export default function Home() {
     <>
       {/* <Card animate={cardAnimation}> */}
       <SimpleGrid columns={5} spacing={0}>
-        <MotionGridItem
+        <GridItem as={motion.div}
           colSpan={{ base: 5, md: 3 }}
           display={"flex"}
           alignItems={"center"}
           justifyContent={"center"}
           initial={{ x: '-10vw', opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          // 1s easeinout string
+          transition='1s easeinout'
         >
           <Text fontSize={{ base: "3xl", md: "7xl" }} fontWeight={"600"} textAlign={"center"}>
             Hi, I'm Justin
           </Text>
-        </MotionGridItem>
-        <MotionGridItem
+        </GridItem>
+        <GridItem as={motion.div}
           colSpan={{ base: 0, md: 2 }}
           rowSpan={{ base: 1, md: 2 }}
           display={{ base: "none", md: "flex" }}
@@ -60,29 +55,29 @@ export default function Home() {
           justifyContent={"center"}
           initial={{ x: '10vw', opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          transition='1s easeinout'
         >
           <Image display={{ base: "none", md: "block" }} src="/images/memoji.png" alt="Test" maxW={"300px"} />
-        </MotionGridItem>
-        <MotionGridItem
+        </GridItem>
+        <GridItem as={motion.div}
           colSpan={{ base: 5, md: 3 }}
           display={"flex"}
           alignItems={"center"}
           justifyContent={"center"}
           initial={{ x: '-10vw', opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          transition='1s easeinout'
         >
           <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight={"500"} textAlign={"center"}>
             I am an experienced developer with a knack for native iOS and experience across web, backend, and emerging technologies.
           </Text>
-        </MotionGridItem>
+        </GridItem>
       </SimpleGrid>
       {/* </Card> */}
       <Box h={{ base: "50px", md: "100px" }} />
-      <MotionBox as={motion.div} variants={textVariants} initial="hidden" animate="visible" transition={{ duration: 1, ease: "easeInOut" }}>
+      <Box as={motion.div} variants={textVariants} initial="hidden" animate="visible" transition='1s easeinout'>
         <Text fontSize={"5xl"} fontWeight={"600"} textAlign={"center"} pb={4}>Skills</Text>
-      </MotionBox>
+      </Box>
       <Box display="flex" pb={8}>
         <SimpleGrid minChildWidth="240px" spacing={4} w="100%">
           {[
@@ -99,14 +94,14 @@ export default function Home() {
             { icon: BashIcon, title: "Scripting", description: "Automating repetitive tasks & commands with scripts using zsh and Bash." },
             { icon: BugIcon, title: "Debugging", description: "Troubleshooting with tools like LLDB, Postman, breakpoints and logging." }
           ].map((skill, index) => (
-            <MotionGridItem mx="auto" key={index} as={motion.div} variants={itemVariants} initial="hidden" animate="visible" transition={{ duration: 1, ease: "easeInOut" }}>
+            <GridItem as={motion.div} mx="auto" key={index} variants={itemVariants} initial="hidden" animate="visible" transition='1s easeinout'>
               <SkillCard
                 maxW="300px"
                 image={<skill.icon width="24px" height="24px" color="codegreen.400" />}
                 title={skill.title}
                 description={skill.description}
               />
-            </MotionGridItem>
+            </GridItem>
           ))}
         </SimpleGrid>
       </Box>
